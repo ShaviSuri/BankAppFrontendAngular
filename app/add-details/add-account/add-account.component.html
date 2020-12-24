@@ -1,0 +1,54 @@
+<form >
+
+<div class="column">
+        
+    <div class="container">
+        <h2>Account Details</h2>
+
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+              <mat-label>Assosiated Aadhar No.</mat-label>
+              <input matInput name="aadharNo" required > <!--  readonly="readonly" -->
+            </mat-form-field>
+
+            <br>
+
+              <mat-form-field appearance="fill" >
+                <mat-label>Account Type</mat-label>
+                <mat-select required>
+                  <mat-option value="savings">Savings</mat-option>
+                  <mat-option value="current">Current</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>branch Name</mat-label>
+                <input matInput name="branchName" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>branch Code</mat-label>
+                <input matInput name="branchCode" required>
+              </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Balance</mat-label>
+                <input matInput name="balance" required>
+              </mat-form-field>
+              <br>
+                <mat-label >Locker:&nbsp; </mat-label>
+                <input type="radio" name="isLocker" value="true">
+                <label for="male">Yes</label>&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="isLocker" value="false">
+                <label for="female">No</label>
+                <br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-md">Submit Details</button></div>
+              
+        </div>
+
+      </div>
+
+</div>
+</form>

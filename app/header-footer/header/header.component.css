@@ -1,0 +1,22 @@
+.navbar {
+    background: #df6141;
+  background: -webkit-linear-gradient(to right, #eb6d4e, #df6141);
+  background: linear-gradient(to right, #f38a70, #df6141);
+  font-size: medium;
+}
+.megamenu {
+    position: static;
+  }
+  
+  .megamenu .dropdown-menu {
+    background: none;
+    border: none;
+    width: 100%;
+  }
+  
+  .bharat>a {
+    font-size: x-large;
+    position: relative;
+    /* margin-left: 5%; */
+    color: rgb(26, 23, 23);
+  }

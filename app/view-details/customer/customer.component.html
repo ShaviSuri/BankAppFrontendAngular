@@ -1,0 +1,91 @@
+
+
+<div class="align">
+  <mat-form-field>
+      <mat-label>Customer Details</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search with any attribute" #input>
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Customer ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef>Full Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+      </ng-container>
+    
+
+      <ng-container matColumnDef="dob">
+        <th mat-header-cell *matHeaderCellDef> Date of birth</th>
+        <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email</th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+    
+  
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile No</th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="aadharNo">
+          <th mat-header-cell *matHeaderCellDef> Adhaar No</th>
+          <td mat-cell *matCellDef="let element"> {{element.aadharNo}} </td>
+        </ng-container>
+ 
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> Address</th>
+          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+  
+
+        <ng-container matColumnDef="locker">
+          <th mat-header-cell *matHeaderCellDef> Locker</th>
+          <td mat-cell *matCellDef="let element"> {{element.locker}} </td>
+        </ng-container>
+        
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions</th>
+ 
+          <mat-cell *matCellDef="let element" >
+              <button mat-button mat-raised-button color="warn" (click)="deleteCustomer(element.id)" >Delete</button>
+               <button mat-button mat-raised-button color="primary" (click)="updateCustomer(element.id)">Edit</button>
+          </mat-cell>
+        </ng-container>
+  
+       
+          
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+  
+</div>
+
+
+  <!-- <table>
+    <tr *ngFor="let customer of customers  | async">
+      <td>{{customer.id}}</td>
+      <td> {{customer.fullName}} </td>
+      <td>{{customer.dob}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.mobile}}</td>
+      <td>{{customer.locker}}</td>
+      <td>{{customer.aadharNo}}</td>
+    </tr>
+  </table> -->
+  <!-- </div> -->

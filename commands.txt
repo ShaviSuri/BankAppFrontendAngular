@@ -1,0 +1,4 @@
+npm install bootstrap@next
+
+ng add @angular/material
+npm install --save @fortawesome/fontawesome-free

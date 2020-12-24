@@ -1,0 +1,104 @@
+<form (ngSubmit)="onSubmit()">
+<div class="row">
+    <div class="column">
+
+        <div class="container">
+            <h2>Personal Details</h2>
+
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                  <mat-label>Full Name</mat-label>
+                  <input matInput name="fullName" [(ngModel)]="customer.fullName" name="fullName" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com" [formControl]="email" [(ngModel)]="customer.email" name="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Mobile</mat-label>
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input type="tel" matInput placeholder="555-555-11234" [(ngModel)]="customer.mobile" name="mobile" required>
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+                  </mat-form-field>
+                  
+                  <mat-form-field appearance="fill">
+                    <mat-label>Aadhar No.</mat-label>
+                    <input matInput [(ngModel)]="customer.aadharNo" name="aadharNo" required>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Address </mat-label>
+                    <textarea matInput [(ngModel)]="customer.address" name="address"  required></textarea>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Date of birth</mat-label>
+                    <input type="date" matInput  [(ngModel)]="customer.dob" name="dob" required>
+                  </mat-form-field>
+                  
+                  <br>
+                  
+            </div>
+
+          </div>
+
+
+    </div>
+
+    <div class = "vertical"></div>
+
+    <div class="column">
+        
+        <div class="container2">
+            <h2>Account Details</h2>
+
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                  <mat-label>Account No</mat-label>
+                  <input matInput [(ngModel)]="customer.account[0].Acc_no" name="Acc_no" required>
+                </mat-form-field>
+
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Account Type</mat-label> 
+                    <!-- Acc_type -->
+                    <mat-select [(ngModel)]="customer.account[0].Acc_type" name="Acc_type" required>
+                      <mat-option value="savings">Savings</mat-option>
+                      <mat-option value="current">Current</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill">
+                    <mat-label>branch Name</mat-label>
+                    <input matInput  [(ngModel)]="customer.account[0].branchName" name="branchName" required>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>branch Code</mat-label>
+                    <input matInput [(ngModel)]="customer.account[0].branchCode" name="branchCode" required>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Balance</mat-label>
+                    <input matInput [(ngModel)]="customer.account[0].balance" name="balance" required>
+                  </mat-form-field>
+
+                    <mat-label style="margin-left: 10%;">Locker:&nbsp; </mat-label>
+                    <input type="radio" name="locker" [(ngModel)]="customer.locker" value="true">
+                    <label for="true">Yes</label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="locker" [(ngModel)]="customer.locker" value="false">
+                    <label for="false">No</label>
+
+                  
+            </div>
+
+          </div>
+
+    </div>
+  </div>
+<div class="text-center">
+  <button type="submit" class="btn btn-primary btn-lg">Submit Details</button></div>
+</form>

@@ -1,0 +1,29 @@
+table {
+  width: 90%;
+  align-content: center; 
+  }
+  
+  .mat-form-field {
+    
+    font-size: 20px;
+    width: 90%;
+  }
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+
+  .align{
+    margin-left:10%;
+    margin-top: 1.5%;
+  }
+
+  th{
+    text-align: center !important;
+  }
+  td{
+    text-align: center !important;
+  }
+  button{
+    margin-left: 8%;
+  }

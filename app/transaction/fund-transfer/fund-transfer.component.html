@@ -1,0 +1,44 @@
+<form >
+
+    <div class="column">
+            
+        <div class="container">
+            <h2>Fund Transfer</h2>
+    
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                  <mat-label>Transfer Account No </mat-label>
+                  <input matInput name="transferAccountNo" required > <!--  readonly="readonly" -->
+                </mat-form-field>
+    
+                <br>
+    
+                  <mat-form-field appearance="fill" >
+                    <mat-label>Transfer Type</mat-label>
+                    <mat-select name="transferType" required>
+                      <mat-option value="NEFT">NEFT</mat-option>
+                      <mat-option value="IMPS">IMPS</mat-option>
+                      <mat-option value="RTGS">RTGS</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+    
+                  <br>
+                  <mat-form-field appearance="fill">
+                    <mat-label>ifsc</mat-label>
+                    <input matInput name="ifsc" required>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Amount</mat-label>
+                    <input matInput name="amount" required>
+                  </mat-form-field>
+                  <br>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary btn-md">Transfer</button></div>
+                  
+            </div>
+    
+          </div>
+    
+    </div>
+    </form>

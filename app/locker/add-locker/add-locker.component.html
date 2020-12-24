@@ -1,0 +1,60 @@
+
+
+
+  <table class="example-full-width" cellspacing="0">
+    <h2>Locker Allotment</h2>
+    <!-- Locker Number -->
+      <tr><td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Locker Number</mat-label>
+        <input matInput [(ngModel)]="value1" name="LockerNo" required>
+      </mat-form-field></td></tr>
+
+      <!-- Account Number -->
+      <tr><td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Account Number</mat-label>
+          <input matInput [(ngModel)]="value2" name="accountNumber" required>
+        </mat-form-field></td></tr>
+
+
+        <!-- In-Time -->
+       <tr>
+         <td>
+          <mat-form-field appearance="fill">
+            <mat-label>In-Time</mat-label>
+            <input type="datetime-local" matInput name="inTime" required>
+          </mat-form-field>
+        </td>
+       </tr>
+       <!-- In-Time -->
+       <tr>
+        <td>
+         <mat-form-field appearance="fill">
+           <mat-label>Out-Time</mat-label>
+           <input type="datetime-local" matInput name="outTime" required>
+         </mat-form-field>
+       </td>
+      </tr>
+       <!-- Branch Code -->
+        <tr><td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Branch Code</mat-label>
+          <input matInput [(ngModel)]="value5" name="branchCode" required>
+        </mat-form-field></td></tr>
+
+        <!-- Availability -->
+        <tr><td><mat-form-field appearance="fill">
+          <mat-label>Availability</mat-label>
+          <mat-select [(ngModel)]="value6" name="availability" required>
+              <mat-option value="available">Available</mat-option>
+              <mat-option value="occupied">Occupied</mat-option>
+          </mat-select>
+        </mat-form-field>
+        </td></tr>
+            <tr><td> 
+              <button mat-raised-button >Add Locker information</button>
+               
+            </td></tr>
+  </table>
+     
+   
+
+
