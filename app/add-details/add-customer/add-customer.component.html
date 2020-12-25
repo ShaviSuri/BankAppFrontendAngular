@@ -58,14 +58,14 @@
             <div class="example-container">
                 <mat-form-field appearance="fill">
                   <mat-label>Account No</mat-label>
-                  <input matInput [(ngModel)]="customer.account[0].Acc_no" name="Acc_no" required>
+                  <input matInput [(ngModel)]="customer.account[0].acc_no" name="acc_no" required>
                 </mat-form-field>
 
 
                   <mat-form-field appearance="fill">
                     <mat-label>Account Type</mat-label> 
                     <!-- Acc_type -->
-                    <mat-select [(ngModel)]="customer.account[0].Acc_type" name="Acc_type" required>
+                    <mat-select [(ngModel)]="customer.account[0].acc_type" name="acc_type" required>
                       <mat-option value="savings">Savings</mat-option>
                       <mat-option value="current">Current</mat-option>
                     </mat-select>

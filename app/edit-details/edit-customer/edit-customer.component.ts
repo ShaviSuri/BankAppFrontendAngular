@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Customer } from 'src/app/customer-table';
+import { Customer } from 'src/app/customer-table'
 import { CustomerService } from 'src/app/customer.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class EditCustomerComponent implements OnInit {
 
   id!: number;
   customer!:Customer;
+
   constructor( private route: ActivatedRoute,private router: Router,
     private customerService: CustomerService) {}
 
@@ -21,7 +22,7 @@ export class EditCustomerComponent implements OnInit {
     this.customer= new Customer();
   
 
-// tslint:disable-next-line:no-string-literal
+
 this.id = this.route.snapshot.params['id'];
 this.customerService.getCustomer(this.id)
   .subscribe(data => {

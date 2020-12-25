@@ -28,6 +28,9 @@ table {
   td{
     text-align: center !important;
   }
-  button{
+  /* button{
     margin-left: 5%;
+  } */
+  .mat-cell{
+    margin-top: 2%;
   }

@@ -9,9 +9,12 @@ import { DetailsLockerComponent } from "./locker/details-locker/details-locker.c
 import { AccountComponent } from "./view-details/account/account.component";
 import { CustomerComponent } from "./view-details/customer/customer.component";
 import { MiniStatementComponent } from "./view-details/mini-statement/mini-statement.component";
-import { WithdrawDepositComponent } from './transaction/withdraw-deposit/withdraw-deposit.component';
+import { WithdrawDepositComponent } from './admin-transaction/withdraw-deposit/withdraw-deposit.component';
 import { FundTransferComponent } from "./transaction/fund-transfer/fund-transfer.component";
 import { EditCustomerComponent } from './edit-details/edit-customer/edit-customer.component';
+import { AdminDepositComponent } from './admin-transaction/admin-deposit/admin-deposit.component';
+import { AdminWithdrawComponent } from './admin-transaction/admin-withdraw/admin-withdraw.component';
+import { AdminFundTransferComponent } from './admin-transaction/admin-fund-transfer/admin-fund-transfer.component';
 
 
 const routes: Routes = [
@@ -28,7 +31,10 @@ const routes: Routes = [
   {path:"customer",component:CustomerComponent},
   {path:"deposit-withdraw",component:WithdrawDepositComponent},
   {path:"fund-transfer",component:FundTransferComponent},
-  { path: 'update/:id', component:EditCustomerComponent },
+  {path: 'update/:id', component:EditCustomerComponent },
+  { path:"deposit", component:AdminDepositComponent},
+  { path:'withdraw/:id', component:AdminWithdrawComponent },
+  { path:'fundtransfer/:id', component:AdminFundTransferComponent },
 
 
 

@@ -1,10 +1,11 @@
 export class Account {
-     Acc_no!:string; 
-     Acc_type!:string;
+     id!: number; 
+     acc_no!:string; 
+     acc_type!:string;
      branchName!:string; 
      branchCode!:string;
      balance!:number;
-     // transaction!: any[];
+     transaction!: any[];
      // withdraw
      // deposit
 }

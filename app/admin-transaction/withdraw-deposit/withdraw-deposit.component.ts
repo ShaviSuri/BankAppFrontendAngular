@@ -3,10 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Account } from 'src/app/account-table';
 
 const ELEMENT_DATA: Account[] = [
-  // {custId:1, accountNo:'12345667', accountType:'Current',balance:100.007, branchName:'Delhi', branchCode:'D01',transaction:['1','2']},
-  // {custId:2,accountNo:'2345667', accountType:'Saving',balance:100.00, branchName:'Delhi', branchCode:'D01',transaction:['1','2']},
-  // {custId:3,accountNo:'124567667', accountType:'Current',balance:100.500, branchName:'Mumbai', branchCode:'M02',transaction:['1','2']},
-  // {custId:4,accountNo:'357827', accountType:'Current',balance:100.78, branchName:'Dehradun', branchCode:'D03',transaction:['1','2']},
+  {id:1,acc_no:'12345667',acc_type:'Current',balance:100.007, branchName:'Delhi', branchCode:'D01',transaction:[]},
+
   ];
 
 @Component({
@@ -15,13 +13,23 @@ const ELEMENT_DATA: Account[] = [
   styleUrls: ['./withdraw-deposit.component.css']
 })
 export class WithdrawDepositComponent implements OnInit {
+  router: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  deposit(){ 
+    this.router.navigate(['/deposit']);
+  }
+  withdraw(id:number){ 
+    this.router.navigate(['withdraw',id]);
+  }
+  fundTransfer(id:number){ 
+    this.router.navigate(['fundtransfer',id]);
+  }
 
-  displayedColumns: string[] = ['custId','accountNo','accountType','balance', 'branchName','branchCode','actions'];
+  displayedColumns: string[] = ['id','acc_no','acc_type','balance','branchName','branchCode','actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(event: Event) {

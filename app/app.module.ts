@@ -28,10 +28,15 @@ import { AccountComponent } from "./view-details/account/account.component";
 import { CustomerComponent } from "./view-details/customer/customer.component";
 import { MiniStatementComponent } from "./view-details/mini-statement/mini-statement.component";
 import { FundTransferComponent } from './transaction/fund-transfer/fund-transfer.component';
-import { WithdrawDepositComponent } from './transaction/withdraw-deposit/withdraw-deposit.component';
+import { WithdrawDepositComponent } from './admin-transaction/withdraw-deposit/withdraw-deposit.component';
 import { CustomerService } from "./customer.service";
 import { FilterPipePipe } from './filter-pipe.pipe';
 import { EditCustomerComponent } from './edit-details/edit-customer/edit-customer.component';
+import { AdminWithdrawComponent } from './admin-transaction/admin-withdraw/admin-withdraw.component';
+import { AdminDepositComponent } from './admin-transaction/admin-deposit/admin-deposit.component';
+import { AdminFundTransferComponent } from './admin-transaction/admin-fund-transfer/admin-fund-transfer.component';
+
+
 
 @NgModule({
   declarations: [
@@ -50,7 +55,10 @@ import { EditCustomerComponent } from './edit-details/edit-customer/edit-custome
     FundTransferComponent,
     WithdrawDepositComponent,
     FilterPipePipe,
-    EditCustomerComponent
+    EditCustomerComponent,
+    AdminWithdrawComponent,
+    AdminDepositComponent,
+    AdminFundTransferComponent
 
 
   ],

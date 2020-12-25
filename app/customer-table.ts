@@ -11,14 +11,15 @@ export class Customer{
   locker: boolean =false;
   
   account: Account[] = [{
-     Acc_no:"",
-     Acc_type:"",
+    id:null as any,
+     acc_no:"",
+     acc_type:"",
      branchName:"",
      branchCode:"",
      balance:2500.00,
+     transaction:[]
   }];
   
-  // account: Array<Account> = new Array<Account>();
 }
 
 
