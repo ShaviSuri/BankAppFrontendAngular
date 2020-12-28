@@ -12,7 +12,7 @@
   
 .vertical { 
     border-left: 3px solid #eb6d4e; 
-    height: 270px; 
+    height: 350px; 
     position:absolute; 
     left: 50%; 
     margin-top: 2.5%;
@@ -79,3 +79,6 @@
   margin-bottom: 4%;
 } */
 
+body{
+  margin: 0;
+}

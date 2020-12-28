@@ -66,5 +66,10 @@ export class CustomerComponent {
     this.router.navigate(['update', id]);
   }
 
+  addAccount(id: number){
+    this.router.navigate(['addAccount', id]);
+  }
+
+
 }
 

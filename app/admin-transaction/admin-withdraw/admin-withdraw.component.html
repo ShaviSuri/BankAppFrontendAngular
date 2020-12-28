@@ -2,33 +2,34 @@
 
 
 
-
-<form >
+<body>
+<form (ngSubmit)="onSubmit()" method="POST" >
   
    
     <div class="row">
         <div class="column">
          
           <div class="container">
-            <h2>Account</h2>
+            <h2>Account Information</h2>
    
                 <div class="example-container">
                     <mat-form-field appearance="fill">
                       <mat-label>Customer ID </mat-label>
-                      <input  matInput name="custid" name="custid" required readonly>
+                      <input  matInput [(ngModel)]="element1.id" name="id" required readonly>
+                      
                     </mat-form-field>
                       
                       <br>
                    
                       <mat-form-field appearance="fill">
                         <mat-label>Account Number </mat-label>
-                        <input matInput name="Acc_no" required readonly>
+                        <input matInput [(ngModel)]="element1.acc_no" name="acc_no" required readonly>
                       </mat-form-field>
                       <br>
                    
                       <mat-form-field appearance="fill">
                         <mat-label>Balance </mat-label>
-                        <textarea matInput name="balance"  required></textarea>
+                        <input matInput [(ngModel)]="element1.balance" name="balance" required readonly>
                       </mat-form-field>
                       
                       <br>
@@ -45,14 +46,25 @@
         <div class="column">
             
             <div class="container2">
-                <h2>Withdawal</h2>
+                <h2>Withdawal Amount</h2>
                 
     
                 <div class="example-container">
+                  <!-- <mat-form-field appearance="fill">
+                    <mat-label>id</mat-label>
+                    <input matInput [(ngModel)]="element1.withdraw[0].id" name="id" required >
+                  </mat-form-field>     -->
+
+
                     <mat-form-field appearance="fill">
                       <mat-label>Enter Amount</mat-label>
-                      <input matInput name="amount" required>
-                    </mat-form-field>     
+                      <input matInput [(ngModel)]="element1.withdraw[0].withdraw_amount" name="withdraw_amount" required >
+                    </mat-form-field>    
+
+                     <mat-form-field appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input type="date" matInput  [(ngModel)]="element1.withdraw[0].date" name="date" required>
+                  </mat-form-field> 
                 </div>
     
               </div>
@@ -60,5 +72,6 @@
         </div>
       </div>
     <div class="text-center">
-      <button type="submit" class="btn btn-primary btn-lg">Submit Details</button></div>
+      <button type="submit" class="btn btn-primary btn-lg">Withdraw</button></div>
     </form>
+  </body>

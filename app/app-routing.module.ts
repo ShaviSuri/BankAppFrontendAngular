@@ -15,26 +15,33 @@ import { EditCustomerComponent } from './edit-details/edit-customer/edit-custome
 import { AdminDepositComponent } from './admin-transaction/admin-deposit/admin-deposit.component';
 import { AdminWithdrawComponent } from './admin-transaction/admin-withdraw/admin-withdraw.component';
 import { AdminFundTransferComponent } from './admin-transaction/admin-fund-transfer/admin-fund-transfer.component';
-
+import { UserHomeComponent } from "./view-details/user-home/user-home.component";
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path:"", component:LoginComponent},
-  {path:"#", component:LoginComponent},
-  {path:"index.html", component:LoginComponent},
-  {path:"change-password",component:ChangePasswordComponent},
-  {path:"customer-account",component:AddCustomerComponent},
-  {path:"account",component:AddAccountComponent},
-  {path:"add-locker",component:AddLockerComponent},
-  {path:"locker",component:DetailsLockerComponent},
-  {path:"statement",component:MiniStatementComponent},
-  {path:"view-accounts",component:AccountComponent},
-  {path:"customer",component:CustomerComponent},
-  {path:"deposit-withdraw",component:WithdrawDepositComponent},
-  {path:"fund-transfer",component:FundTransferComponent},
-  {path: 'update/:id', component:EditCustomerComponent },
-  { path:"deposit", component:AdminDepositComponent},
-  { path:'withdraw/:id', component:AdminWithdrawComponent },
-  { path:'fundtransfer/:id', component:AdminFundTransferComponent },
+ {path:"", component:UserHomeComponent, canActivate: [AuthGuard]},
+ {path:"user-home", component:UserHomeComponent, canActivate: [AuthGuard]},
+  // {path:"#", component:LoginComponent},
+  // { path: '**', redirectTo: '' },
+  {path:"login", component:LoginComponent},
+  {path:"change-password",component:ChangePasswordComponent, canActivate: [AuthGuard]},
+  {path:"customer-account",component:AddCustomerComponent, canActivate: [AuthGuard]},
+  {path:"account",component:AddAccountComponent , canActivate: [AuthGuard]},
+  {path:"add-locker",component:AddLockerComponent, canActivate: [AuthGuard]},
+  {path:"locker",component:DetailsLockerComponent , canActivate: [AuthGuard]},
+  {path:"addAccount/:id",component:AddAccountComponent, canActivate: [AuthGuard]},//add
+  {path:"statement",component:MiniStatementComponent, canActivate: [AuthGuard]},
+  {path:"view-accounts",component:AccountComponent, canActivate: [AuthGuard]},
+  {path:"customer",component:CustomerComponent, canActivate: [AuthGuard]},
+  {path:"deposit-withdraw",component:WithdrawDepositComponent, canActivate: [AuthGuard]},
+  {path:"fund-transfer",component:FundTransferComponent, canActivate: [AuthGuard]},
+  {path: 'update/:id', component:EditCustomerComponent , canActivate: [AuthGuard]},
+  { path:"deposit/:id", component:AdminDepositComponent, canActivate: [AuthGuard]},
+  { path:'withdraw/:id', component:AdminWithdrawComponent , canActivate: [AuthGuard]},
+  { path:'userFundtransfer/:id', component:FundTransferComponent , canActivate: [AuthGuard]},
+  { path:'fundtransfer/:id', component:AdminFundTransferComponent , canActivate: [AuthGuard]},
+  { path:"user-home", component:UserHomeComponent, canActivate: [AuthGuard]},
+
 
 
 
@@ -46,3 +53,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
+export const routing = RouterModule.forRoot(routes);

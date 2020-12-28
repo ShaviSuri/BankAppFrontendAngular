@@ -59,6 +59,7 @@
           <mat-cell *matCellDef="let element" >
               <button mat-button mat-raised-button color="warn" (click)="deleteCustomer(element.id)" >Delete</button>
                <button mat-button mat-raised-button color="primary" (click)="updateCustomer(element.id)">Edit</button>
+               <button mat-button mat-raised-button color="accent" (click)="addAccount(element.id)" >Add Account</button>
           </mat-cell>
         </ng-container>
   

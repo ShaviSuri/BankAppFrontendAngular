@@ -3,12 +3,14 @@ import { Account } from "./account-table";
 export class Customer{
   id!:number;
   fullName!: string;
-  dob!:string;
+  dob!:Date;
   email!:string;
   mobile!:number;
   aadharNo!:number;
   address!:string;
   locker: boolean =false;
+  password!: string;
+  role!: string;
   
   account: Account[] = [{
     id:null as any,
@@ -17,7 +19,9 @@ export class Customer{
      branchName:"",
      branchCode:"",
      balance:2500.00,
-     transaction:[]
+     transaction:[],
+     withdraw:[],
+     deposit:[]
   }];
   
 }

@@ -8,12 +8,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header-footer/header/header.component';
 import { FooterComponent } from './header-footer/footer/footer.component';
@@ -35,6 +35,15 @@ import { EditCustomerComponent } from './edit-details/edit-customer/edit-custome
 import { AdminWithdrawComponent } from './admin-transaction/admin-withdraw/admin-withdraw.component';
 import { AdminDepositComponent } from './admin-transaction/admin-deposit/admin-deposit.component';
 import { AdminFundTransferComponent } from './admin-transaction/admin-fund-transfer/admin-fund-transfer.component';
+import { AuthorizationService } from "./authorization.service";
+import { UserHomeComponent } from './view-details/user-home/user-home.component';
+import { JwtInterceptor } from './_helper/jwt.terceptor';
+import { ErrorInterceptor } from './_helper/error.interceptor';
+import { UserService } from './user.service';
+import { AuthenticationService } from './authentication.service';
+import { AlertService } from './alert.service';
+import { AuthGuard } from './auth.guard';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -58,7 +67,8 @@ import { AdminFundTransferComponent } from './admin-transaction/admin-fund-trans
     EditCustomerComponent,
     AdminWithdrawComponent,
     AdminDepositComponent,
-    AdminFundTransferComponent
+    AdminFundTransferComponent,
+    UserHomeComponent
 
 
   ],
@@ -76,11 +86,21 @@ import { AdminFundTransferComponent } from './admin-transaction/admin-fund-trans
     MatTableModule,
     MatButtonModule,
     HttpClientModule,
+    routing
 
 
     
   ],
-  providers: [CustomerService,FilterPipePipe],
+  providers: [CustomerService,FilterPipePipe,AuthorizationService,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    DatePipe,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+ 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/customer-table';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  customerData: Customer;
+  
+  constructor() { 
+    this.customerData = JSON.parse(localStorage.getItem('customerData')|| '{}')
+  }
+  
 
   ngOnInit(): void {
+    
   }
 
 }

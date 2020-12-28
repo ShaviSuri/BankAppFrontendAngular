@@ -1,6 +1,6 @@
 <div class="align">
     <mat-form-field>
-        <mat-label>Account Details</mat-label>
+        <mat-label>Transactions</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Search with any attribute" #input>
       </mat-form-field>
       <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -45,7 +45,7 @@
           <!-- <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell> -->
           <th mat-header-cell *matHeaderCellDef> Actions</th>
           <mat-cell *matCellDef="let element">
-              <button mat-button mat-raised-button color="warn" (click)="deposit()" >Deposit </button> &nbsp;
+              <button mat-button mat-raised-button color="warn" (click)="deposit(element.id)">Deposit </button> &nbsp;
                <button mat-button mat-raised-button color="primary" (click)="withdraw(element.id)">Withdraw</button> &nbsp;
                <button mat-button mat-raised-button color="accent" (click)="fundTransfer(element.id)">Fund Transfer</button>
           </mat-cell>

@@ -1,3 +1,5 @@
+<body>
+  
 <form (ngSubmit)="onSubmit()">
 <div class="row">
     <div class="column">
@@ -40,6 +42,11 @@
                   </mat-form-field>
                   
                   <br>
+
+                  <mat-form-field appearance="fill">
+                    <mat-label>Generated Password</mat-label>
+                    <input matInput id="password" [(ngModel)]="customer.password" name="password" required>
+                  </mat-form-field>
                   
             </div>
 
@@ -86,7 +93,14 @@
                     <input matInput [(ngModel)]="customer.account[0].balance" name="balance" required>
                   </mat-form-field>
 
-                    <mat-label style="margin-left: 10%;">Locker:&nbsp; </mat-label>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Role</mat-label>
+                    <input matInput [(ngModel)]="customer.role" name="role" [value]="customer.role" readonly required>
+                  </mat-form-field>
+
+                  <br>
+
+                    <mat-label style="margin-left: 2%;margin-left: 3%;">Locker:&nbsp; </mat-label>
                     <input type="radio" name="locker" [(ngModel)]="customer.locker" value="true">
                     <label for="true">Yes</label>&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="locker" [(ngModel)]="customer.locker" value="false">
@@ -100,5 +114,8 @@
     </div>
   </div>
 <div class="text-center">
-  <button type="submit" class="btn btn-primary btn-lg">Submit Details</button></div>
+  <button type="submit" class="btn btn-primary btn-lg" (click)="convertDate()">Submit Details</button></div>
 </form>
+
+</body>
+

@@ -1,0 +1,65 @@
+<body>
+    
+
+<div class="container">
+  
+    <h1> Hi {{customerData.fullName}}! </h1>
+
+    <div class="container d-flex ">
+       <p> Welcome to your account in Bharat Bank. These are your active accounts available.</p>
+        <div class="card p-3">
+            <div class="card-bottom pt-3 px-3 mb-2">
+                <div class="d-flex flex-row justify-content-between text-align-center">
+                    <div class="d-flex flex-column"><span>Your Primary Balance</span>
+                        <p>&#8377; <span class="text-white">{{customerData.account[0].balance}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <div class="container2">
+        <table class="responsive-table">
+          <tr class="table-header">
+              <th >Account No</th>
+              <th >Account Type</th>
+              <th>Balance</th>
+              <th >Branch</th>
+              <th>Branch Code</th>
+              <th>Action</th>
+            <!-- <div class="col col-1">Account No</div>
+            <div class="col col-2">Account Type</div>
+            <div class="col col-3">Balance</div>
+            <div class="col col-4">Branch</div>
+            <div class="col col-5">Branch Code</div> -->
+            </tr>
+          <tr class="table-row" *ngFor="let acc of customerData.account">
+            <td  >{{acc.acc_no}}</td>
+            <td >{{acc.acc_type}}</td>
+            <td >{{acc.balance}}</td>
+            <td >{{acc.branchName}}</td>
+            <td >{{acc.branchCode}}</td>
+            <td><button mat-button mat-raised-button color="primary"  (click)="userFundTransfer(acc.id)">Transfer</button></td>
+            
+          </tr>
+        </table>
+      </div>
+    
+    <!-- <a [routerLink]="['/login']">Logout</a> -->
+
+</div>
+
+
+
+</body>
+
+
+
+<!-- <h1 > 
+    Hi {{customerData.fullName}}!</h1>
+<p>You're logged in with Angular 6!!</p>
+<h3>All registered users:</h3>
+
+<p><a [routerLink]="['/login']">Logout</a></p> -->

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Customer } from 'src/app/customer-table';
 import { CustomerService } from 'src/app/customer.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-customer',
@@ -14,15 +15,29 @@ export class AddCustomerComponent implements OnInit {
   customer: Customer = new Customer();
 
   submitted = false;
+  User!: string;
+  newDate: any;
+  form!: FormGroup
   
   
   
 
   constructor(private customerService: CustomerService,
-    private router: Router) { }
+    private router: Router,public datepipe: DatePipe,private formBuilder: FormBuilder) { }
+
+  convertDate(){
+    
+  }
 
   ngOnInit(){
+    this.customer.role= "customer";
     console.log(this.customer.account);
+
+    this.form = this.formBuilder.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required],
+    });
+
   }
 
   newCustomer(): void{
@@ -35,9 +50,12 @@ export class AddCustomerComponent implements OnInit {
     .subscribe(data => console.log(data),error =>console.log(error));
     this.customer = new Customer();
     this.gotoList();
+    console.log(this.customer.dob);
   }
 
   onSubmit(){
+    this.customer.dob =this.datepipe.transform(this.customer.dob, 'yyyy-MM-dd') as any;
+    console.log(this.customer.dob);
     this.submitted=true;
     this.save();
   }

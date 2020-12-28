@@ -5,40 +5,37 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Login</h5>
-            <form class="form-signin">
 
-              <div class="example-container">
+            <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onSubmit()">
+
+              <div class="example-container form-group">
                 <mat-form-field appearance="fill">
                   <mat-label>Enter your email</mat-label>
-                  <input matInput placeholder="ms3@example.com" [formControl]="email" required>
-                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                  <!-- [(ngModel)]="logindetails.email" -->
+                  <input matInput placeholder="ms3@example.com" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  formControlName="email" required>
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Username is required</div>
+                </div>
                 </mat-form-field>
               </div>
 
 
-              <div class="example-container">
+              <div class="example-container form-group">
               <mat-form-field appearance="fill">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" required>
+                <!-- [(ngModel)]="logindetails.password" -->
+                <input matInput [type]="hide ? 'password' : 'text'" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password"  required>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
               </mat-form-field>
             </div>
 
               <button class="btn btn-lg btn-block text-uppercase" type="submit">Sign in</button>
               <hr class="my-4">
-
-              <!-- <div class="form-label-group">
-                <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
-                <label for="email">Email address</label>
-              </div> -->
-
-              
-              <!-- <div class="form-label-group">
-                <input type="password" id="password" class="form-control" placeholder="Password" required>
-                <label for="password">Password</label>
-              </div> -->
 
             </form>
           </div>
